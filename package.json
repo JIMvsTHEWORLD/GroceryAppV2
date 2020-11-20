@@ -1,0 +1,20 @@
+{
+  "name": "groceryappv2",
+  "version": "1.0.0",
+  "description": "Grocery List App built using React Hooks",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": 
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JIMvsTHEWORLD/GroceryAppV2.git"
+  },
+  "author": "Jim Armbruster",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JIMvsTHEWORLD/GroceryAppV2/issues"
+  },
+  "homepage": "https://github.com/JIMvsTHEWORLD/GroceryAppV2#readme"
+}
