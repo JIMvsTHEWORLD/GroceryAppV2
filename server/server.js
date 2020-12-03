@@ -3,6 +3,7 @@ const express = require('express');
 const { dirname } = require('path');
 const app = express();
 const PORT = process.env.PORT || 3000;
+const listRouter = require('./routes/listRouter.js')
 
 
 app.use('/list', listRouter);

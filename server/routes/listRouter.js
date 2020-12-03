@@ -8,4 +8,4 @@ router.post('/list', listController.addItem, (req, res) =>{
     return res.status(200).json(res.locals);
 })
 
-module.exports = listRouter;
+module.exports = router;
