@@ -5,6 +5,8 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 
 
+app.use('list/', listRouter);
+
 app.use('/build', express.static(path.join(__dirname, '../build')));
 
 app.get('*', (req, res) => {
