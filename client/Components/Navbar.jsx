@@ -1,10 +1,25 @@
-import React from 'react';
+import React, { useState } from 'react';
 import "../styles/styles.scss";
 
 function Navbar(){
+    const [item, setItem] = useState('');
+    const [amount, setAmount] = useState('');
+    const [unit, setUnit] = useState('');
 
-    const onSubmit = () => {
-        console.log("Hello World");
+    const onSubmit = (e) => {
+        //e.preventDefault();
+        let url = 'http://localhost:3000/list/addItem';
+        fetch(url, {
+            method: 'POST',
+            headers: {'Content-type': 'application/json'},
+            body: JSON.stringify({item, amount, unit}),
+        })
+        .then((data) => {
+            console.log("data in Navbar.jsx: ", data)
+        })
+        .catch((err) => {
+            console.log ("error with the fetch: ", err)
+        })
     }
 
     return(

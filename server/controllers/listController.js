@@ -3,8 +3,9 @@ const db = require("../model/db.js");
 const listController = {};
 
 listController.addItem = (req, res, next) => {
-    const {item, amount, unit, price} = req.body;
-    const queryString = `INSERT INTO Grocery_List VALUES ('${item}', '${amount}', '${unit}', '${price}')`;
+    console.log("req.body: ", req.body)
+    const {item, amount, unit} = req.body;
+    const queryString = `INSERT INTO Grocery_List (item, amount, unit) VALUES ('${item}', '${amount}', '${unit}')`;
 
     db.query(queryString)
     .then((data) =>{
