@@ -18,4 +18,16 @@ listController.addItem = (req, res, next) => {
     });
 };
 
+listController.getItems = (req, res, next) => {
+    const queryString = `SELECT * FROM Grocery_List`;
+    db.query(queryString)
+    .then((data) => {
+        res.locals.data = data.rows;
+        next();
+    })
+    .catch((err) => {
+        next(err);
+    });
+}
+
 module.exports = listController;

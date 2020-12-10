@@ -6,10 +6,16 @@ body {
     background: lightgreen;
 }
 
-.MainContainer {
+.ToDoContainer {
     background: lightsalmon;
+}
+
+.DoneContainer {
+    background: lightslategray;
 }
 
 .ListItem {
     background: lightsteelblue;
+    border: solid;
+    border-color: black;
 }
