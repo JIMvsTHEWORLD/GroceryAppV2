@@ -22,7 +22,6 @@ function MainContainer(){
         return setToDoItems([...toDoItems])
     }
 
-    console.log("toDoItems: ", toDoItems)
     const toDoList = [];
     const doneList = [];
 
