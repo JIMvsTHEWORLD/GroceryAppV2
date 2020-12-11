@@ -1,12 +1,14 @@
 import React, { useEffect, useState } from "react";
 
 function ListItem(props){
-    const [done, setDone] = useState(false);
     console.log("props: ", props)
+    const handleDone = () =>{
+        props.handleDone(props.index)
+    }
     return (
         <div className="ListItem">
             <p>{props.amount}{props.unit} {props.item}</p>
-            <button className="done-btn" onClick={console.log("hello")}>Done</button> 
+            <button className="done-btn" onClick={handleDone}>Done</button> 
         </div>
     )
 }
