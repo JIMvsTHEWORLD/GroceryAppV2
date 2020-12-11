@@ -4,10 +4,22 @@ function ListItem(props){
     const handleDone = () =>{
         props.handleDone(props.index)
     }
+
+    const handleEdit = (e) => {
+        e.preventDefault();
+        console.log(`Edit ${props.item}`)
+    }
+
+    const handleDelete = (e) => {
+        e.preventDefault();
+        console.log(`Delete ${props.item}`)
+    }
+
     return (
-        <div className="ListItem" onClick={handleDone}>
-            <p>{props.amount}{props.unit} {props.item}</p>
-            {/* <button className="done-btn" onClick={handleDone}>Done</button>  */}
+        <div className="ListItem" >
+            <button className="edit-btn" onClick={handleEdit}>Edit</button>
+            <p onClick={handleDone}>{props.amount}{props.unit} {props.item}</p>
+            <button className="delete-btn" onClick={handleDelete}>Delete</button>
         </div>
     )
 }
