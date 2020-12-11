@@ -14,4 +14,8 @@ router.post('/addItem', listController.addItem, (req, res) =>{
     res.status(200).json(res.locals);
 })
 
+router.delete('/:id', listController.deleteItem, (req, res) => {
+    return res.status(200);
+})
+
 module.exports = router;

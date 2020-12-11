@@ -11,14 +11,13 @@ function ListItem(props){
     }
 
     const handleDelete = (e) => {
-        e.preventDefault();
-        console.log(`Delete ${props.item}`)
+        props.handleDelete(e, props.id)
     }
 
     return (
         <div className="ListItem" >
             <button className="edit-btn" onClick={handleEdit}>Edit</button>
-            <p onClick={handleDone}>{props.amount}{props.unit} {props.item}</p>
+            <p onClick={handleDone}>{props.amount} {props.unit} {props.item}</p>
             <button className="delete-btn" onClick={handleDelete}>Delete</button>
         </div>
     )

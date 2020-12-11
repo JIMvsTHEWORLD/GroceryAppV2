@@ -13,13 +13,20 @@ function MainContainer(){
         })
     }, []);
 
-    
-
     const handleDone = (i) => {
         console.log(`hello ${toDoItems[i].item}`)
         toDoItems[i].done = !toDoItems[i].done;
         console.log(toDoItems[i].done)
-        return setToDoItems([...toDoItems])
+        setToDoItems([...toDoItems])
+    }
+
+    const handleDelete = (e, id) => {
+        e.preventDefault();
+        let newList = toDoItems.filter(item => item.id !== id);
+        setToDoItems(newList)
+        fetch(`http://localhost:3000/list/${id}`, {
+            method: 'Delete'
+        })
     }
 
     const toDoList = [];
@@ -36,6 +43,7 @@ function MainContainer(){
                 amount={toDoItems[i].amount}
                 unit={toDoItems[i].unit}
                 handleDone={handleDone}
+                handleDelete={handleDelete}
             />)
         } else {
             toDoList.push(<ListItem 
@@ -47,6 +55,7 @@ function MainContainer(){
                 amount={toDoItems[i].amount}
                 unit={toDoItems[i].unit}
                 handleDone={handleDone}
+                handleDelete={handleDelete}
             />)
         }
     }

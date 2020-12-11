@@ -30,4 +30,18 @@ listController.getItems = (req, res, next) => {
     });
 }
 
+listController.deleteItem = (req, res, next) => {
+    const queryString = `DELETE FROM Grocery_List WHERE id=${req.params.id}`;
+
+    db.query(queryString)
+    .then((data) => {
+        console.log(data);
+        next();
+    })
+    .catch((err) => {
+        console.log("error in listController.deleteItem: ", err);
+        next(err);
+    });
+}
+
 module.exports = listController;
