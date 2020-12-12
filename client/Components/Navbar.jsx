@@ -48,6 +48,7 @@ function Navbar(){
                 placeholder='lbs, boxes, etc'
                 onChange={(e) => setUnit(e.target.value)}
                 />
+                <br></br>
                 <label>Notes (Optional): </label>
                 <input 
                 type='text'
