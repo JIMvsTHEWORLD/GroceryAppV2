@@ -17,7 +17,11 @@ function ListItem(props){
     return (
         <div className="ListItem" >
             <button className="edit-btn" onClick={handleEdit}>Edit</button>
-            <p onClick={handleDone}>{props.amount} {props.unit} {props.item}</p>
+            <div className="ListInfo" onClick={handleDone}>
+                <p>{props.amount} {props.unit} {props.item}</p>
+                <label>Notes:</label>
+                <p>{props.notes}</p>
+            </div>
             <button className="delete-btn" onClick={handleDelete}>Delete</button>
         </div>
     )

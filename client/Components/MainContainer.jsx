@@ -8,7 +8,6 @@ function MainContainer(){
         .then((data) => data.json())
         .then((res) => {
             res.forEach(el => el.done = false)
-            console.log('res again: ', res)
             setToDoItems([...toDoItems, ...res])
         })
     }, []);
@@ -25,8 +24,20 @@ function MainContainer(){
         let newList = toDoItems.filter(item => item.id !== id);
         setToDoItems(newList)
         fetch(`http://localhost:3000/list/${id}`, {
-            method: 'Delete'
+            method: "Delete"
         })
+    }
+
+    const handleClear = (e) => {
+        let x = confirm("Are you sure you want to delete the entire list?")
+        if(x === true){
+            e.preventDefault();
+            let newList = [];
+            setToDoItems(newList);
+            fetch("http://localhost:3000/list/all", {
+                method: "Delete"
+            });
+        };
     }
 
     const toDoList = [];
@@ -42,6 +53,7 @@ function MainContainer(){
                 item={toDoItems[i].item}
                 amount={toDoItems[i].amount}
                 unit={toDoItems[i].unit}
+                notes={toDoItems[i].notes}
                 handleDone={handleDone}
                 handleDelete={handleDelete}
             />)
@@ -54,6 +66,7 @@ function MainContainer(){
                 item={toDoItems[i].item}
                 amount={toDoItems[i].amount}
                 unit={toDoItems[i].unit}
+                notes={toDoItems[i].notes}
                 handleDone={handleDone}
                 handleDelete={handleDelete}
             />)
@@ -70,6 +83,7 @@ function MainContainer(){
                 <h1>This is the Done List</h1>
                 {doneList}
             </div>
+            <button className="clear-btn" onClick={handleClear}>Clear List</button>
         </div>
     )
 }
