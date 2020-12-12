@@ -21,7 +21,7 @@ listController.addItem = (req, res, next) => {
 listController.editItem = (req, res, next) => {
     console.log("req.body: ", req.body)
     const {item, amount, unit, notes} = req.body;
-    const queryString = `UPDATE GroceryList SET item = '${item}', amount = '${amount}', unit = '${unit}', notes = '${notes}' WHERE id = '${req.params.id}'`
+    const queryString = `UPDATE Grocery_List SET item = '${item}', amount = '${amount}', unit = '${unit}', notes = '${notes}' WHERE id = '${req.params.id}'`
 
     db.query(queryString)
     .then((data) => {

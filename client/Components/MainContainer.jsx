@@ -28,23 +28,6 @@ function MainContainer(){
         })
     }
 
-    const handleSave = (e, props) => {
-        console.log("props in handleSave in Main: ", props)
-        e.preventDefault();
-        let url = `http://localhost:3000/list/${props.id}`;
-        fetch(url, {
-            method: 'POST',
-            headers: {'Content-type': 'application/json'},
-            body: JSON.stringify({item, amount, unit, notes}),
-        })
-        .then((data) => {
-            console.log("data with put request: ", data)
-        })
-        .catch((err) => {
-            console.log ("error with the  PUT fetch: ", err)
-        })
-    }
-
     const handleClear = (e) => {
         let x = confirm("Are you sure you want to delete the entire list?")
         if(x === true){
@@ -73,7 +56,6 @@ function MainContainer(){
                 notes={toDoItems[i].notes}
                 handleDone={handleDone}
                 handleDelete={handleDelete}
-                handleSave={handleSave}
             />)
         } else {
             toDoList.push(<ListItem 
@@ -87,7 +69,6 @@ function MainContainer(){
                 notes={toDoItems[i].notes}
                 handleDone={handleDone}
                 handleDelete={handleDelete}
-                handleSave={handleSave}
             />)
         }
     }
