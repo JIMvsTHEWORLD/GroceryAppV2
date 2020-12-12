@@ -8,7 +8,6 @@ function Navbar(){
     const [notes, setNotes] = useState('');
 
     const onSubmit = (e) => {
-        //e.preventDefault();
         let url = 'http://localhost:3000/list/addItem';
         fetch(url, {
             method: 'POST',

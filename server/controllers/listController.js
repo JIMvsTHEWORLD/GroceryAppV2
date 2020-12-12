@@ -8,7 +8,7 @@ listController.addItem = (req, res, next) => {
     const queryString = `INSERT INTO Grocery_List (item, amount, unit, notes) VALUES ('${item}', '${amount}', '${unit}', '${notes}')`;
 
     db.query(queryString)
-    .then((data) =>{
+    .then((data) => {
         res.body = data;
         next();
     })
@@ -17,6 +17,22 @@ listController.addItem = (req, res, next) => {
         next(err);
     });
 };
+
+listController.editItem = (req, res, next) => {
+    console.log("req.body: ", req.body)
+    const {item, amount, unit, notes} = req.body;
+    const queryString = `UPDATE GroceryList SET item = '${item}', amount = '${amount}', unit = '${unit}', notes = '${notes}' WHERE id = '${req.params.id}'`
+
+    db.query(queryString)
+    .then((data) => {
+        res.body = data;
+        next();
+    })
+    .catch((err) => {
+        console.log("error: ", err);
+        next(err);
+    })
+}
 
 listController.getItems = (req, res, next) => {
     const queryString = `SELECT * FROM Grocery_List`;

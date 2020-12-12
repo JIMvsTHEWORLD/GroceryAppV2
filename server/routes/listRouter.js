@@ -12,6 +12,11 @@ router.post('/addItem', listController.addItem, (req, res) =>{
     res.status(200).json(res.locals);
 })
 
+router.put('/:id', listController.editItem, (req, res) => {
+    console.log("Successful edit to the database via /list route")
+    res.status(200).json(res.locals);
+})
+
 router.delete('/:id', listController.deleteItem, (req, res) => {
     return res.status(200);
 })

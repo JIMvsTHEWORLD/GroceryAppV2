@@ -16,6 +16,11 @@ function ListItem(props){
         props.handleDelete(e, props.id)
     }
 
+    const handleSave = (e) => {
+        props.handleSave(e, props)
+        setEditStatus(false)
+    }
+
     const handleCancel = (e) => {
         e.preventDefault();
         setEditStatus(false);
@@ -36,7 +41,7 @@ function ListItem(props){
     } else {
         return(
             <div className="ListItem" >
-                <form className='editItem' onSubmit={console.log("hello")}>
+                <form className='editItem' onSubmit={handleSave}>
                     <label>Item: </label>
                     <input
                     type='text'
