@@ -1,8 +1,11 @@
 import React, {useEffect, useState} from 'react';
 import ListItem from '../Components/ListItem.jsx';
+import Navbar from '../Components/Navbar.jsx';
+import Login from './Login.jsx';
 
 function MainContainer(){
     const [toDoItems, setToDoItems] = useState([]);
+    const [isLoggedIn, setLogin] = useState(false);
     useEffect(() => {
         fetch("list/getItems")
         .then((data) => data.json())
@@ -72,20 +75,24 @@ function MainContainer(){
             />)
         }
     }
-
-    return (
-        <div className="MainContainer">
-            <div className="ToDoList">
-                <h1>This is the To Do List</h1>
-                {toDoList}
+    if (!isLoggedIn){
+        return <Login />
+    } else {
+        return (
+            <div className="MainContainer">
+                <Navbar />
+                <div className="ToDoList">
+                    <h1>This is the To Do List</h1>
+                    {toDoList}
+                </div>
+                <div className="DoneList">
+                    <h1>This is the Done List</h1>
+                    {doneList}
+                </div>
+                <button className="clear-btn" onClick={handleClear}>Clear List</button>
             </div>
-            <div className="DoneList">
-                <h1>This is the Done List</h1>
-                {doneList}
-            </div>
-            <button className="clear-btn" onClick={handleClear}>Clear List</button>
-        </div>
-    )
+        )
+    }
 }
 
 export default MainContainer;
