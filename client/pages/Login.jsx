@@ -34,6 +34,19 @@ function Login(props) {
                         onChange={(e) => setUsername(e.target.value)}
                         />
                     </div>
+                    <div className="input-group">
+                        <label>Password: </label>
+                        <input
+                        id="password"
+                        type="password"
+                        name="password"
+                        placeholder="Password"
+                        onChange={(e) => setPassword(e.target.value)}
+                        />
+                    </div>
+                    <button type="submit" className="loginButton">
+                        Login
+                    </button>
                 </form>
             </div>       
         </div>
